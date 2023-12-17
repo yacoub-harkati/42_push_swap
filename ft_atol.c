@@ -1,31 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_stack.c                                       :+:      :+:    :+:   */
+/*   ft_atol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yaharkat <yaharkat@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/17 13:48:34 by yaharkat          #+#    #+#             */
-/*   Updated: 2023/12/17 15:42:03 by yaharkat         ###   ########.fr       */
+/*   Created: 2023/12/17 15:01:31 by yaharkat          #+#    #+#             */
+/*   Updated: 2023/12/17 15:14:03 by yaharkat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void init_stack(t_stack_node **a, char **av, bool av_flag)
+long ft_atol(const char *nptr)
 {
-	int i;
-	
-	i = !av_flag;
-	while (av[i])
+	size_t i;
+	long number;
+	int sign;
+
+	i = 0;
+	sign = 1;
+	number = 0;
+	while ((nptr[i] >= 9 && nptr[i] <= 13) || nptr[i] == 32)
+		i++;
+	if (nptr[i] == '-' || nptr[i] == '+')
 	{
-		if (!check_error(av[i]) || !check_duplicate(*a, ft_atoi(av[i])))
-		{
-			if (av_flag)
-				free_matrix(av);
-			free_stack(a); // to do: free stack
-		}
-		add_back_stack(a, new_stack(ft_atol(av[i])));
+		if (nptr[i] == '-')
+			sign = -1;
 		i++;
 	}
+	while (ft_isdigit(nptr[i]))
+		number = number * 10 + nptr[i++] - 48;
+
+	return (number * sign);
 }

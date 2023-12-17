@@ -12,7 +12,6 @@
 
 #include "push_swap.h"
 
-
 int main(int ac, char **av)
 {
 
@@ -20,7 +19,7 @@ int main(int ac, char **av)
 	t_stack_node *b;
 	bool av_flag;
 
-	av_flag = false;
+	av_flag = false; // to know if we need to free av
 	a = NULL;
 	b = NULL;
 	if (ac < 2 || (ac == 2 && !av[1][0]))
@@ -30,5 +29,5 @@ int main(int ac, char **av)
 		av = ft_split(av[1], ' ');
 		av_flag = true;
 	}
-	init_stack(&a, av_flag);
+	init_stack(&a, av, av_flag);
 }

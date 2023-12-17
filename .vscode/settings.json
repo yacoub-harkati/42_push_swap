@@ -7,6 +7,7 @@
 		"*.css.liquid": "liquid-css",
 		"*.scss.liquid": "liquid-scss",
 		"*.c": "c",
-		"push_swap.h": "c"
+		"push_swap.h": "c",
+		"limits.h": "c"
 	}
 }
