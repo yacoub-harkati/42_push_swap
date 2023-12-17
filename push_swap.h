@@ -36,5 +36,6 @@ size_t stack_size(t_stack_node *lst);
 void ft_putstr_fd(char *s, int fd);
 char	*ft_strdup(const char *s);
 void free_stack(t_stack_node **lst);
+bool is_stack_sorted(t_stack_node *lst);
 
 #endif
