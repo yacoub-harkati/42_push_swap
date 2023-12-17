@@ -12,34 +12,23 @@
 
 #include "push_swap.h"
 
-int check_error(int ac, char **av)
-{
-	int i;
-	int j;
-
-	i = 0;
-	while (i < ac)
-	{
-		j = 0;
-		while (av[i][j])
-		{
-			if (av[i][j] == '-' && !ft_isdigit(av[i][j + 1]))
-				return (EXIT_FAILURE);
-			if (!ft_isdigit(av[i][j]) && av[i][j] != '-')
-				return (EXIT_FAILURE);
-			j++;
-		}
-		i++;
-	}
-	return (EXIT_SUCCESS);
-}
 
 int main(int ac, char **av)
 {
-	if (ac < 2)
+
+	t_stack_node *a;
+	t_stack_node *b;
+	bool av_flag;
+
+	av_flag = false;
+	a = NULL;
+	b = NULL;
+	if (ac < 2 || (ac == 2 && !av[1][0]))
 		return (EXIT_FAILURE);
 	if (ac == 2)
+	{
 		av = ft_split(av[1], ' ');
-	if (check_error(ac, av) == EXIT_FAILURE)
-		return (EXIT_FAILURE);
+		av_flag = true;
+	}
+	init_stack(&a, av_flag);
 }

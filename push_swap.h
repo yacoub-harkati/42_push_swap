@@ -13,8 +13,9 @@ typedef struct s_stack_node
 
 # include <limits.h>
 # include <stdlib.h>
+# include <stdbool.h>
 # include <unistd.h>
 
-int						ft_atol(const char *nptr);
+char					**ft_split(char const *s, char c);
 
 #endif
