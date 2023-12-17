@@ -6,7 +6,7 @@
 /*   By: yaharkat <yaharkat@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 13:48:34 by yaharkat          #+#    #+#             */
-/*   Updated: 2023/12/17 15:42:03 by yaharkat         ###   ########.fr       */
+/*   Updated: 2023/12/17 16:35:48 by yaharkat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,21 @@
 void init_stack(t_stack_node **a, char **av, bool av_flag)
 {
 	int i;
+	long number;
 	
 	i = !av_flag;
 	while (av[i])
 	{
-		if (!check_error(av[i]) || !check_duplicate(*a, ft_atoi(av[i])))
+		number = ft_atol(av[i]);
+		if (!check_error(a, av[i], number))
 		{
 			if (av_flag)
 				free_matrix(av);
+			ft_putstr_fd("Error\n", 2);
 			free_stack(a); // to do: free stack
+			exit(EXIT_FAILURE);
 		}
-		add_back_stack(a, new_stack(ft_atol(av[i])));
+		add_back_stack(a, new_stack(number));
 		i++;
 	}
 }

@@ -13,6 +13,7 @@ typedef struct s_stack_node
 
 #include <limits.h>
 #include <stdlib.h>
+#include <stdio.h>
 #include <stdbool.h>
 #include <unistd.h>
 
@@ -25,11 +26,15 @@ size_t ft_strlen(const char *s);
 bool check_digit(char *av);
 void init_stack(t_stack_node **a, char **av, bool av_flag);
 void free_matrix(char **av);
-bool check_error(char *av);
+bool check_error(t_stack_node **a, char *av, long number);
 bool check_duplicate(t_stack_node *a, int number);
+bool check_int(long number);
 t_stack_node *new_stack(int value);
 t_stack_node *last_stack(t_stack_node *lst);
 void add_back_stack(t_stack_node **lst, t_stack_node *new);
 size_t stack_size(t_stack_node *lst);
+void ft_putstr_fd(char *s, int fd);
+char	*ft_strdup(const char *s);
+void free_stack(t_stack_node **lst);
 
 #endif

@@ -17,17 +17,14 @@ int main(int ac, char **av)
 
 	t_stack_node *a;
 	t_stack_node *b;
-	bool av_flag;
 
-	av_flag = false; // to know if we need to free av
 	a = NULL;
 	b = NULL;
 	if (ac < 2 || (ac == 2 && !av[1][0]))
 		return (EXIT_FAILURE);
 	if (ac == 2)
-	{
 		av = ft_split(av[1], ' ');
-		av_flag = true;
-	}
-	init_stack(&a, av, av_flag);
+	init_stack(&a, av, ac == 2);
+	b = last_stack(a);
+	printf("a: %d\n", b->value);
 }
