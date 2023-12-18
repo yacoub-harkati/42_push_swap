@@ -37,5 +37,6 @@ void ft_putstr_fd(char *s, int fd);
 char	*ft_strdup(const char *s);
 void free_stack(t_stack_node **lst);
 bool is_stack_sorted(t_stack_node *lst);
+void add_front_stack(t_stack_node **lst, t_stack_node *new);
 
 #endif
