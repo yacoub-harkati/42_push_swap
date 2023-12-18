@@ -1,39 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft_utils.c                                      :+:      :+:    :+:   */
+/*   push_commands.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yaharkat <yaharkat@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/17 14:31:34 by yaharkat          #+#    #+#             */
-/*   Updated: 2023/12/18 21:04:43 by yaharkat         ###   ########.fr       */
+/*   Created: 2023/12/18 20:52:02 by yaharkat          #+#    #+#             */
+/*   Updated: 2023/12/18 21:01:21 by yaharkat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_isdigit(int c)
+void pa(t_stack_node **a, t_stack_node **b, bool checker)
 {
-	if ((c >= '0' && c <= '9'))
-		return (1);
-	return (0);
-}
-void ft_putstr_fd(char *s, int fd)
-{
-	if (!s)
-		return ;
-	write(fd, s, ft_strlen(s));
+	push(b, a);
+	if (checker)
+		ft_putstr_fd("pa\n", 1);
 }
 
-char	*ft_strdup(const char *s)
+void pb(t_stack_node **a, t_stack_node **b, bool checker)
 {
-	size_t	len;
-	char	*dest;
-
-	len = ft_strlen(s);
-	dest = (char *)malloc(sizeof(char) * (len + 1));
-	if (!dest)
-		return (NULL);
-	ft_strlcpy(dest, s, (len + 1));
-	return (dest);
+	push(a, b);
+	if (checker)
+		ft_putstr_fd("pb\n", 1);
 }
