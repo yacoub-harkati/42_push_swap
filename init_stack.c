@@ -6,7 +6,7 @@
 /*   By: yaharkat <yaharkat@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 13:48:34 by yaharkat          #+#    #+#             */
-/*   Updated: 2023/12/17 16:35:48 by yaharkat         ###   ########.fr       */
+/*   Updated: 2023/12/18 20:30:52 by yaharkat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,4 +32,6 @@ void init_stack(t_stack_node **a, char **av, bool av_flag)
 		add_back_stack(a, new_stack(number));
 		i++;
 	}
+	if (av_flag)
+		free_matrix(av);
 }
