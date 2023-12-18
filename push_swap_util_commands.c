@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_util_cammands.c                          :+:      :+:    :+:   */
+/*   push_swap_util_commands.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yaharkat <yaharkat@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 20:40:22 by yaharkat          #+#    #+#             */
-/*   Updated: 2023/12/18 20:46:14 by yaharkat         ###   ########.fr       */
+/*   Updated: 2023/12/18 20:49:25 by yaharkat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,32 +14,14 @@
 
 void pa(t_stack_node **a, t_stack_node **b, bool checker)
 {
-	t_stack_node *tmp;
-
-	if (!*b)
-		return ;
-	tmp = *b;
-	*b = (*b)->next;
-	if (*b)
-		(*b)->prev = NULL;
-	tmp->next = NULL;
-	add_front_stack(a, tmp);
+	push(b, a);
 	if (checker)
 		ft_putstr_fd("pa\n", 1);
 }
 
 void pb(t_stack_node **a, t_stack_node **b, bool checker)
 {
-	t_stack_node *tmp;
-
-	if (!*a)
-		return ;
-	tmp = *a;
-	*a = (*a)->next;
-	if (*a)
-		(*a)->prev = NULL;
-	tmp->next = NULL;
-	add_front_stack(b, tmp);
+	push(a, b);
 	if (checker)
 		ft_putstr_fd("pb\n", 1);
 }
