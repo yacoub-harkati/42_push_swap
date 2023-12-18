@@ -6,7 +6,7 @@
 /*   By: yaharkat <yaharkat@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 20:40:22 by yaharkat          #+#    #+#             */
-/*   Updated: 2023/12/18 20:44:18 by yaharkat         ###   ########.fr       */
+/*   Updated: 2023/12/18 20:46:14 by yaharkat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,4 +85,26 @@ void rr(t_stack_node **a, t_stack_node **b, bool checker)
 	rotate(b);
 	if (checker)
 		ft_putstr_fd("rr\n", 1);
+}
+
+void rra(t_stack_node **a, bool checker)
+{
+	reverse_rotate(a);
+	if (checker)
+		ft_putstr_fd("rra\n", 1);
+}
+
+void rrb(t_stack_node **b, bool checker)
+{
+	reverse_rotate(b);
+	if (checker)
+		ft_putstr_fd("rrb\n", 1);
+}
+
+void rrr(t_stack_node **a, t_stack_node **b, bool checker)
+{
+	reverse_rotate(a);
+	reverse_rotate(b);
+	if (checker)
+		ft_putstr_fd("rrr\n", 1);
 }
