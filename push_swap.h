@@ -7,6 +7,7 @@
 typedef struct s_stack_node
 {
 	int value;
+	struct s_stack_node *target_node;
 	struct s_stack_node *next;
 	struct s_stack_node *prev;
 } t_stack_node;
@@ -34,7 +35,7 @@ t_stack_node *last_stack(t_stack_node *lst);
 void add_back_stack(t_stack_node **lst, t_stack_node *new);
 size_t stack_size(t_stack_node *lst);
 void ft_putstr_fd(char *s, int fd);
-char	*ft_strdup(const char *s);
+char *ft_strdup(const char *s);
 void free_stack(t_stack_node **lst);
 bool is_stack_sorted(t_stack_node *lst);
 void add_front_stack(t_stack_node **lst, t_stack_node *new);
@@ -54,6 +55,7 @@ void rotate(t_stack_node **lst);
 void reverse_rotate(t_stack_node **lst);
 void push(t_stack_node **lst1, t_stack_node **lst2);
 t_stack_node *find_highest(t_stack_node *lst);
+t_stack_node *find_smallest(t_stack_node *lst);
 void sort_tree(t_stack_node **lst);
 
 #endif
