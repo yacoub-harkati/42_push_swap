@@ -6,7 +6,7 @@
 /*   By: yaharkat <yaharkat@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 20:40:22 by yaharkat          #+#    #+#             */
-/*   Updated: 2023/12/18 21:06:27 by yaharkat         ###   ########.fr       */
+/*   Updated: 2023/12/19 18:57:14 by yaharkat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,18 +55,16 @@ void reverse_rotate(t_stack_node **lst)
 	*lst = tmp;
 }
 
-void push(t_stack_node **lst1, t_stack_node **lst2)
+void push(t_stack_node **dest, t_stack_node **src)
 {
 	t_stack_node *tmp;
 
-	if (!*lst2 || !lst2)
+	if (!*src)
 		return ;
-	tmp = *lst2;
-	*lst2 = (*lst2)->next;
-	if (*lst2)
-		(*lst2)->prev = NULL;
-	tmp->next = *lst1;
-	if (*lst1)
-		(*lst1)->prev = tmp;
-	*lst1 = tmp;
+	tmp = *src;
+	*src = (*src)->next;
+	if (*src)
+		(*src)->prev = NULL;
+	tmp->next = NULL;
+	add_front_stack(dest, tmp);
 }

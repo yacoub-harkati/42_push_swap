@@ -4,19 +4,23 @@
 #define EXIT_SUCCESS 0
 #define EXIT_FAILURE 1
 
-typedef struct s_stack_node
-{
-	int value;
-	struct s_stack_node *target_node;
-	struct s_stack_node *next;
-	struct s_stack_node *prev;
-} t_stack_node;
-
 #include <limits.h>
 #include <stdlib.h>
 #include <stdio.h>
 #include <stdbool.h>
 #include <unistd.h>
+
+typedef struct s_stack_node
+{
+	int value;
+	int current_position;
+	int price;
+	bool above_median;
+	bool cheapest;
+	struct s_stack_node *target_node;
+	struct s_stack_node *next;
+	struct s_stack_node *prev;
+} t_stack_node;
 
 char **ft_split(char const *s, char c);
 long ft_atol(const char *nptr);
@@ -53,9 +57,16 @@ void pb(t_stack_node **a, t_stack_node **b, bool checker);
 void swap(t_stack_node **lst);
 void rotate(t_stack_node **lst);
 void reverse_rotate(t_stack_node **lst);
-void push(t_stack_node **lst1, t_stack_node **lst2);
+void push(t_stack_node **dest, t_stack_node **src);
 t_stack_node *find_highest(t_stack_node *lst);
 t_stack_node *find_smallest(t_stack_node *lst);
-void sort_tree(t_stack_node **lst);
+void sort_tree(t_stack_node **lst, bool checker);
+void push_swap(t_stack_node **a, t_stack_node **b, bool checker);
+void set_cheapest_node(t_stack_node *b);
+void set_price(t_stack_node *a, t_stack_node *b);
+void set_current_position(t_stack_node *lst);
+void set_target_node(t_stack_node *a, t_stack_node *b);
+void init_nodes(t_stack_node **a, t_stack_node **b);
+t_stack_node *find_cheapest(t_stack_node *b);
 
 #endif

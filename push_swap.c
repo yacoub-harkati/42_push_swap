@@ -30,9 +30,9 @@ int main(int ac, char **av)
 	if (!is_stack_sorted(a))
 	{
 		if (stack_size(a) == 3)
-		{
-			sort_tree(&a);
-		}
+			sort_tree(&a, false);
+		else 
+			push_swap(&a, &b, false);
 	}
 	free_stack(&a);
 	return (EXIT_SUCCESS);
