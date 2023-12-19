@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_three.c                                       :+:      :+:    :+:   */
+/*   push_swap_utils_2.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yaharkat <yaharkat@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/18 21:11:02 by yaharkat          #+#    #+#             */
-/*   Updated: 2023/12/19 15:46:46 by yaharkat         ###   ########.fr       */
+/*   Created: 2023/12/18 20:40:22 by yaharkat          #+#    #+#             */
+/*   Updated: 2023/12/19 15:38:49 by yaharkat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void sort_tree(t_stack_node **lst)
+t_stack_node *find_highest(t_stack_node *lst)
 {
-	t_stack_node *highest_node;
+	t_stack_node *tmp;
 
-	highest_node = find_highest(*lst);
-	if(*lst == highest_node)
-		ra(lst, false);
-	else if ((*lst)->next == highest_node)
-		rra(lst, false);
-	if ((*lst)->value > (*lst)->next->value)
-		sa(lst, false);
+	tmp = lst;
+	while (lst)
+	{
+		if (lst->value > tmp->value)
+			tmp = lst;
+		lst = lst->next;
+	}
+	return tmp;
 }

@@ -53,5 +53,7 @@ void swap(t_stack_node **lst);
 void rotate(t_stack_node **lst);
 void reverse_rotate(t_stack_node **lst);
 void push(t_stack_node **lst1, t_stack_node **lst2);
+t_stack_node *find_highest(t_stack_node *lst);
+void sort_tree(t_stack_node **lst);
 
 #endif

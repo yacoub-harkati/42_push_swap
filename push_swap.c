@@ -20,17 +20,20 @@ int main(int ac, char **av)
 	a = NULL;
 	b = NULL;
 	if (ac < 2 || (ac == 2 && !av[1][0]))
+	{
+		ft_putstr_fd("Error\n", 2);
 		return (EXIT_FAILURE);
+	}
 	if (ac == 2)
 		av = ft_split(av[1], ' ');
 	init_stack(&a, av, ac == 2);
 	if (!is_stack_sorted(a))
 	{
-		b = last_stack(a);
-		printf("a: %d\n", b->value);
+		if (stack_size(a) == 3)
+		{
+			sort_tree(&a);
+		}
 	}
 	free_stack(&a);
-	if (ac == 2)
-		free_matrix(av);
 	return (EXIT_SUCCESS);
 }

@@ -1,7 +1,7 @@
 CC = cc
-CFLAGS= -Wall -Wextra -Werror
+CFLAGS= -Wall -Wextra -Werror -fsanitize=address -g3
 NAME = push_swap
-SRCS= push_swap.c push_swap_utils.c libft_utils.c libft_utils_2.c
+SRCS= $(wildcard *.c)
 OBJS= $(SRCS:.c=.o)
 
 all: $(NAME)
