@@ -6,7 +6,7 @@
 /*   By: yaharkat <yaharkat@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 14:28:16 by yaharkat          #+#    #+#             */
-/*   Updated: 2023/12/17 16:51:07 by yaharkat         ###   ########.fr       */
+/*   Updated: 2023/12/20 21:46:52 by yaharkat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ bool check_digit(char *av)
 	int i;
 
 	i = 0;
-	if (av[0] == '-')
+	if (av[0] == '-' && ft_isdigit(av[1]))
 		i++;
 	while (av[i])
 	{
