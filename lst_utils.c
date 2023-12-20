@@ -6,7 +6,7 @@
 /*   By: yaharkat <yaharkat@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 15:30:16 by yaharkat          #+#    #+#             */
-/*   Updated: 2023/12/18 20:41:41 by yaharkat         ###   ########.fr       */
+/*   Updated: 2023/12/20 22:45:34 by yaharkat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,9 @@ void add_back_stack(t_stack_node **lst, t_stack_node *new)
 		return;
 	}
 	tmp = last_stack(*lst);
-	tmp->next = new;
+	new->next = NULL;
 	new->prev = tmp;
+	tmp->next = new;
 }
 
 void add_front_stack(t_stack_node **lst, t_stack_node *new)
@@ -65,6 +66,8 @@ size_t stack_size(t_stack_node *lst)
 {
 	size_t i;
 
+	if (!lst)
+		return (0);
 	i = 0;
 	while (lst)
 	{
