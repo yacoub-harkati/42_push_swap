@@ -68,5 +68,7 @@ void set_current_position(t_stack_node *lst);
 void set_target_node(t_stack_node *a, t_stack_node *b);
 void init_nodes(t_stack_node **a, t_stack_node **b);
 t_stack_node *find_cheapest(t_stack_node *b);
-
+void rotate_both(t_stack_node **a, t_stack_node **b, t_stack_node *cheapest_node, bool checker);
+void reverse_rotate_both(t_stack_node **a, t_stack_node **b, t_stack_node *cheapest_node, bool checker);
+void finish_rotation(t_stack_node **lst, t_stack_node *target_node, char stack, bool checker);
 #endif

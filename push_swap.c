@@ -20,10 +20,7 @@ int main(int ac, char **av)
 	a = NULL;
 	b = NULL;
 	if (ac < 2 || (ac == 2 && !av[1][0]))
-	{
-		ft_putstr_fd("Error\n", 2);
 		return (EXIT_FAILURE);
-	}
 	if (ac == 2)
 		av = ft_split(av[1], ' ');
 	init_stack(&a, av, ac == 2);
