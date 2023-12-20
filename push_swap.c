@@ -27,7 +27,9 @@ int main(int ac, char **av)
 	if (!is_stack_sorted(a))
 	{
 		if (stack_size(a) == 3)
-			sort_tree(&a, false);
+			sort_three(&a, false);
+		else if (stack_size(a) <= 5)
+			sort_five(&a, &b, false);
 		else 
 			push_swap(&a, &b, false);
 	}

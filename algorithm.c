@@ -6,7 +6,7 @@
 /*   By: yaharkat <yaharkat@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 21:10:43 by yaharkat          #+#    #+#             */
-/*   Updated: 2023/12/20 19:09:48 by yaharkat         ###   ########.fr       */
+/*   Updated: 2023/12/20 21:20:36 by yaharkat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ void move_nodes(t_stack_node **a, t_stack_node **b, bool checker)
 	t_stack_node *cheapest_node;
 
 	cheapest_node = find_cheapest(*b);
-	if (cheapest_node->above_median)
+	if (cheapest_node->above_median && cheapest_node->target_node->above_median)
 		rotate_both(a, b, cheapest_node, checker);
-	else 
+	else if (!cheapest_node->above_median && !cheapest_node->target_node->above_median)
 		reverse_rotate_both(a, b, cheapest_node, checker);
 	finish_rotation(a, cheapest_node->target_node, 'a', checker);
 	finish_rotation(b, cheapest_node, 'b', checker);
@@ -43,7 +43,7 @@ void push_swap(t_stack_node **a, t_stack_node **b, bool checker)
 	len_a = stack_size(*a);
 	while (len_a-- > 3)
 		pb(a, b, checker);
-	sort_tree(a, checker);
+	sort_three(a, checker);
 	while (*b)
 	{
 		init_nodes(a, b);

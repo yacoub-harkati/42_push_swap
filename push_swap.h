@@ -60,7 +60,6 @@ void reverse_rotate(t_stack_node **lst);
 void push(t_stack_node **dest, t_stack_node **src);
 t_stack_node *find_highest(t_stack_node *lst);
 t_stack_node *find_smallest(t_stack_node *lst);
-void sort_tree(t_stack_node **lst, bool checker);
 void push_swap(t_stack_node **a, t_stack_node **b, bool checker);
 void set_cheapest_node(t_stack_node *b);
 void set_price(t_stack_node *a, t_stack_node *b);
@@ -71,4 +70,7 @@ t_stack_node *find_cheapest(t_stack_node *b);
 void rotate_both(t_stack_node **a, t_stack_node **b, t_stack_node *cheapest_node, bool checker);
 void reverse_rotate_both(t_stack_node **a, t_stack_node **b, t_stack_node *cheapest_node, bool checker);
 void finish_rotation(t_stack_node **lst, t_stack_node *target_node, char stack, bool checker);
+void sort_five(t_stack_node **a, t_stack_node **b, bool checker);
+void sort_three(t_stack_node **lst, bool checker);
+
 #endif
