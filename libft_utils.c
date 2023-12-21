@@ -6,7 +6,7 @@
 /*   By: yaharkat <yaharkat@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 14:31:34 by yaharkat          #+#    #+#             */
-/*   Updated: 2023/12/18 21:04:43 by yaharkat         ###   ########.fr       */
+/*   Updated: 2023/12/21 13:47:30 by yaharkat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ int	ft_isdigit(int c)
 		return (1);
 	return (0);
 }
-void ft_putstr_fd(char *s, int fd)
+
+void	ft_putstr_fd(char *s, int fd)
 {
 	if (!s)
 		return ;

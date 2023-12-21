@@ -12,7 +12,8 @@
 
 #include "push_swap.h"
 
-void rboth(t_stack_node **a, t_stack_node **b, t_stack_node *cheapest_node, bool checker)
+void	rboth(t_stack_node **a, t_stack_node **b, t_stack_node *cheapest_node,
+		bool checker)
 {
 	while (*a != cheapest_node->target_node && *b != cheapest_node)
 		rr(a, b, checker);
@@ -20,7 +21,8 @@ void rboth(t_stack_node **a, t_stack_node **b, t_stack_node *cheapest_node, bool
 	set_current_position(*b);
 }
 
-void rrboth(t_stack_node **a, t_stack_node **b, t_stack_node *cheapest_node, bool checker)
+void	rrboth(t_stack_node **a, t_stack_node **b, t_stack_node *cheapest_node,
+		bool checker)
 {
 	while (*a != cheapest_node->target_node && *b != cheapest_node)
 		rrr(a, b, checker);
@@ -28,16 +30,17 @@ void rrboth(t_stack_node **a, t_stack_node **b, t_stack_node *cheapest_node, boo
 	set_current_position(*b);
 }
 
-void finish_rotation(t_stack_node **lst, t_stack_node *target_node, char stack, bool checker)
+void	finish_rotation(t_stack_node **lst, t_stack_node *target_node,
+		char stack, bool checker)
 {
 	while (*lst != target_node)
 	{
 		if (target_node->above_median)
-		{	
-		if (stack == 'a')
-			ra(lst, checker);
-		else
-			rb(lst, checker);
+		{
+			if (stack == 'a')
+				ra(lst, checker);
+			else
+				rb(lst, checker);
 		}
 		else
 		{

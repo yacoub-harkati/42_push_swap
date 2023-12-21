@@ -6,17 +6,17 @@
 /*   By: yaharkat <yaharkat@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 13:48:34 by yaharkat          #+#    #+#             */
-/*   Updated: 2023/12/18 20:30:52 by yaharkat         ###   ########.fr       */
+/*   Updated: 2023/12/21 13:46:37 by yaharkat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void init_stack(t_stack_node **a, char **av, bool av_flag)
+void	init_stack(t_stack_node **a, char **av, bool av_flag)
 {
-	int i;
-	long number;
-	
+	int		i;
+	long	number;
+
 	i = !av_flag;
 	while (av[i])
 	{
@@ -26,7 +26,7 @@ void init_stack(t_stack_node **a, char **av, bool av_flag)
 			if (av_flag)
 				free_matrix(av);
 			ft_putstr_fd("Error\n", 2);
-			free_stack(a); // to do: free stack
+			free_stack(a);
 			exit(EXIT_FAILURE);
 		}
 		add_back_stack(a, new_stack(number));

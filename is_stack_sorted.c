@@ -6,13 +6,13 @@
 /*   By: yaharkat <yaharkat@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 16:55:09 by yaharkat          #+#    #+#             */
-/*   Updated: 2023/12/17 16:55:24 by yaharkat         ###   ########.fr       */
+/*   Updated: 2023/12/21 13:48:17 by yaharkat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-bool is_stack_sorted(t_stack_node *lst)
+bool	is_stack_sorted(t_stack_node *lst)
 {
 	while (lst->next)
 	{

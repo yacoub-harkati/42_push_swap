@@ -12,14 +12,14 @@
 
 #include "push_swap.h"
 
-void swap(t_stack_node **lst)
+void	swap(t_stack_node **lst)
 {
-	int len;
-	t_stack_node *tmp;
+	int				len;
+	t_stack_node	*tmp;
 
 	len = stack_size(*lst);
 	if (!*lst || !lst || len == 1 || !len)
-		return;
+		return ;
 	tmp = *lst;
 	*lst = (*lst)->next;
 	tmp->prev = *lst;
@@ -30,39 +30,39 @@ void swap(t_stack_node **lst)
 	(*lst)->prev = NULL;
 }
 
-void rotate(t_stack_node **head)
+void	rotate(t_stack_node **head)
 {
-	t_stack_node *tmp;
-	int len;
+	t_stack_node	*tmp;
+	int				len;
 
 	len = stack_size(*head);
 	if (!head || !*head || len == 1 || !len)
-		return;
+		return ;
 	tmp = *head;
 	(*head) = (*head)->next;
 	(*head)->prev = NULL;
 	add_back_stack(head, tmp);
 }
 
-void reverse_rotate(t_stack_node **stack)
+void	reverse_rotate(t_stack_node **stack)
 {
-	t_stack_node *last;
-	int len;
+	t_stack_node	*last;
+	int				len;
 
 	len = stack_size(*stack);
 	if (!*stack || !stack || len == 1 || !len)
-		return;
+		return ;
 	last = last_stack(*stack);
 	last->prev->next = NULL;
 	add_front_stack(stack, last);
 }
 
-void push(t_stack_node **dest, t_stack_node **src)
+void	push(t_stack_node **dest, t_stack_node **src)
 {
-	t_stack_node *node_to_push;
+	t_stack_node	*node_to_push;
 
 	if (!*src)
-		return;
+		return ;
 	node_to_push = *src;
 	*src = (*src)->next;
 	if (*src)
@@ -72,7 +72,7 @@ void push(t_stack_node **dest, t_stack_node **src)
 	{
 		*dest = node_to_push;
 		(*dest)->next = NULL;
-		return;
+		return ;
 	}
 	node_to_push->next = *dest;
 	(*dest)->prev = node_to_push;

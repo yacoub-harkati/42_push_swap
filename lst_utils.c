@@ -12,9 +12,9 @@
 
 #include "push_swap.h"
 
-t_stack_node *new_stack(int value)
+t_stack_node	*new_stack(int value)
 {
-	t_stack_node *new;
+	t_stack_node	*new;
 
 	new = (t_stack_node *)malloc(sizeof(t_stack_node));
 	if (!new)
@@ -25,9 +25,9 @@ t_stack_node *new_stack(int value)
 	return (new);
 }
 
-t_stack_node *last_stack(t_stack_node *head)
+t_stack_node	*last_stack(t_stack_node *head)
 {
-	t_stack_node *tmp;
+	t_stack_node	*tmp;
 
 	tmp = head;
 	while (tmp->next)
@@ -35,14 +35,14 @@ t_stack_node *last_stack(t_stack_node *head)
 	return (tmp);
 }
 
-void add_back_stack(t_stack_node **head, t_stack_node *new)
+void	add_back_stack(t_stack_node **head, t_stack_node *new)
 {
-	t_stack_node *tmp;
+	t_stack_node	*tmp;
 
 	if (!*head)
 	{
 		*head = new;
-		return;
+		return ;
 	}
 	tmp = last_stack(*head);
 	tmp->next = new;
@@ -50,12 +50,12 @@ void add_back_stack(t_stack_node **head, t_stack_node *new)
 	new->next = NULL;
 }
 
-void add_front_stack(t_stack_node **head, t_stack_node *new)
+void	add_front_stack(t_stack_node **head, t_stack_node *new)
 {
 	if (!*head)
 	{
 		*head = new;
-		return;
+		return ;
 	}
 	new->next = *head;
 	(*head)->prev = new;
@@ -63,9 +63,9 @@ void add_front_stack(t_stack_node **head, t_stack_node *new)
 	*head = new;
 }
 
-size_t stack_size(t_stack_node *head)
+size_t	stack_size(t_stack_node *head)
 {
-	size_t i;
+	size_t	i;
 
 	if (!head)
 		return (0);

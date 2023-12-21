@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-void init_nodes(t_stack_node **a, t_stack_node **b)
+void	init_nodes(t_stack_node **a, t_stack_node **b)
 {
 	set_current_position(*a);
 	set_current_position(*b);
@@ -21,25 +21,26 @@ void init_nodes(t_stack_node **a, t_stack_node **b)
 	set_cheapest_node(*b);
 }
 
-void move_nodes(t_stack_node **a, t_stack_node **b, bool checker)
+void	move_nodes(t_stack_node **a, t_stack_node **b, bool checker)
 {
-	t_stack_node *cheapest_node;
+	t_stack_node	*cheapest_node;
 
 	cheapest_node = find_cheapest(*b);
 	if (cheapest_node->above_median && cheapest_node->target_node->above_median)
 		rboth(a, b, cheapest_node, checker);
-	else if (!cheapest_node->above_median && !cheapest_node->target_node->above_median)
+	else if (!cheapest_node->above_median
+		&& !cheapest_node->target_node->above_median)
 		rrboth(a, b, cheapest_node, checker);
 	finish_rotation(a, cheapest_node->target_node, 'a', checker);
 	finish_rotation(b, cheapest_node, 'b', checker);
 	pa(a, b, checker);
 }
 
-void push_swap(t_stack_node **a, t_stack_node **b, bool checker)
+void	push_swap(t_stack_node **a, t_stack_node **b, bool checker)
 {
-	int len_a;
-	t_stack_node *smallest_node;
-	
+	int				len_a;
+	t_stack_node	*smallest_node;
+
 	len_a = stack_size(*a);
 	while (len_a-- > 3)
 		pb(a, b, checker);

@@ -6,15 +6,15 @@
 /*   By: yaharkat <yaharkat@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 21:11:02 by yaharkat          #+#    #+#             */
-/*   Updated: 2023/12/20 21:33:26 by yaharkat         ###   ########.fr       */
+/*   Updated: 2023/12/21 13:40:38 by yaharkat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void sort_three(t_stack_node **lst, bool checker)
+void	sort_three(t_stack_node **lst, bool checker)
 {
-	t_stack_node *highest_node;
+	t_stack_node	*highest_node;
 
 	highest_node = find_highest(*lst);
 	if (*lst == highest_node)
@@ -25,9 +25,9 @@ void sort_three(t_stack_node **lst, bool checker)
 		sa(lst, checker);
 }
 
-void sort_five(t_stack_node **a, t_stack_node **b, bool checker)
+void	sort_five(t_stack_node **a, t_stack_node **b, bool checker)
 {
-	t_stack_node *smallest;
+	t_stack_node	*smallest;
 
 	init_nodes(a, b);
 	while (stack_size(*a) > 3)

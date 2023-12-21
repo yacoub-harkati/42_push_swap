@@ -12,11 +12,11 @@
 
 #include "push_swap.h"
 
-long ft_atol(const char *nptr)
+long	ft_atol(const char *nptr)
 {
-	size_t i;
-	long number;
-	int sign;
+	size_t	i;
+	long	number;
+	int		sign;
 
 	i = 0;
 	sign = 1;
@@ -31,6 +31,5 @@ long ft_atol(const char *nptr)
 	}
 	while (ft_isdigit(nptr[i]))
 		number = number * 10 + nptr[i++] - 48;
-
 	return (number * sign);
 }

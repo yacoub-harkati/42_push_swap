@@ -12,9 +12,9 @@
 
 #include "push_swap.h"
 
-char *ft_substr(char const *s, unsigned int start, size_t len)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	char *sub;
+	char	*sub;
 
 	if (!s)
 		return (NULL);
@@ -29,9 +29,9 @@ char *ft_substr(char const *s, unsigned int start, size_t len)
 	return (sub);
 }
 
-size_t ft_strlen(const char *s)
+size_t	ft_strlen(const char *s)
 {
-	size_t len;
+	size_t	len;
 
 	if (!s)
 		return (0);
@@ -41,9 +41,9 @@ size_t ft_strlen(const char *s)
 	return (len);
 }
 
-size_t ft_strlcpy(char *dst, const char *src, size_t size)
+size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
-	size_t i;
+	size_t	i;
 
 	i = 0;
 	if (size > 0 && dst && src)

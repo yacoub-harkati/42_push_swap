@@ -6,17 +6,17 @@
 /*   By: yaharkat <yaharkat@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 11:07:33 by yaharkat          #+#    #+#             */
-/*   Updated: 2023/12/17 15:26:22 by yaharkat         ###   ########.fr       */
+/*   Updated: 2023/12/21 13:41:41 by yaharkat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static size_t ft_countword(char const *s, char c)
+static size_t	ft_countword(char const *s, char c)
 {
-	size_t i;
-	size_t old_i;
-	size_t count;
+	size_t	i;
+	size_t	old_i;
+	size_t	count;
 
 	i = 0;
 	old_i = 0;
@@ -34,9 +34,9 @@ static size_t ft_countword(char const *s, char c)
 	return (count);
 }
 
-static size_t compute_w_len(char const *s, char c)
+static size_t	compute_w_len(char const *s, char c)
 {
-	size_t len;
+	size_t	len;
 
 	len = 0;
 	while (*s && *s == c)
@@ -46,9 +46,9 @@ static size_t compute_w_len(char const *s, char c)
 	return (len);
 }
 
-char **free_strs(char **strs, size_t size)
+char	**free_strs(char **strs, size_t size)
 {
-	size_t i;
+	size_t	i;
 
 	i = 0;
 	while (i <= size)
@@ -57,12 +57,12 @@ char **free_strs(char **strs, size_t size)
 	return (NULL);
 }
 
-char **ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
-	char **split;
-	size_t words_count;
-	size_t i;
-	size_t cpd_w;
+	char	**split;
+	size_t	words_count;
+	size_t	i;
+	size_t	cpd_w;
 
 	if (!s)
 		return (NULL);
