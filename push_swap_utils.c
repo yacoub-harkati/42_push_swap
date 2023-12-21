@@ -6,7 +6,7 @@
 /*   By: yaharkat <yaharkat@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 20:40:22 by yaharkat          #+#    #+#             */
-/*   Updated: 2023/12/20 22:49:25 by yaharkat         ###   ########.fr       */
+/*   Updated: 2023/12/21 13:31:15 by yaharkat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,72 +14,67 @@
 
 void swap(t_stack_node **lst)
 {
-	int	len;
+	int len;
+	t_stack_node *tmp;
 
 	len = stack_size(*lst);
 	if (!*lst || !lst || len == 1 || !len)
-		return ;
+		return;
+	tmp = *lst;
 	*lst = (*lst)->next;
-	(*lst)->prev->prev = *lst;
-	(*lst)->prev->next = (*lst)->next;
-	if ((*lst)->next)
-		(*lst)->next->prev = (*lst)->prev;
-	(*lst)->next = (*lst)->prev;
+	tmp->prev = *lst;
+	tmp->next = (*lst)->next;
+	if (tmp->next)
+		tmp->next->prev = (*lst)->prev;
+	(*lst)->next = tmp;
 	(*lst)->prev = NULL;
 }
 
-void rotate(t_stack_node **stack)
+void rotate(t_stack_node **head)
 {
-	t_stack_node	*last_node;
-	int				len;
+	t_stack_node *tmp;
+	int len;
 
-	len = stack_size(*stack);
-	if (!stack || !*stack || len == 1 || !len)
-		return ;
-	last_node = last_stack(*stack);
-	last_node->next = *stack;
-	*stack = (*stack)->next;
-	(*stack)->prev = NULL;
-	last_node->next->prev = last_node;
-	last_node->next->next = NULL;
+	len = stack_size(*head);
+	if (!head || !*head || len == 1 || !len)
+		return;
+	tmp = *head;
+	(*head) = (*head)->next;
+	(*head)->prev = NULL;
+	add_back_stack(head, tmp);
 }
 
 void reverse_rotate(t_stack_node **stack)
 {
-	t_stack_node	*last;
-	int				len;
+	t_stack_node *last;
+	int len;
 
 	len = stack_size(*stack);
 	if (!*stack || !stack || len == 1 || !len)
-		return ;
+		return;
 	last = last_stack(*stack);
 	last->prev->next = NULL;
-	last->next = *stack;
-	last->prev = NULL;
-	*stack = last;
-	last->next->prev = last;
+	add_front_stack(stack, last);
 }
 
 void push(t_stack_node **dest, t_stack_node **src)
 {
-	t_stack_node	*tmp;
+	t_stack_node *node_to_push;
 
 	if (!*src)
-		return ;
-	tmp = *src;
+		return;
+	node_to_push = *src;
 	*src = (*src)->next;
 	if (*src)
 		(*src)->prev = NULL;
-	tmp->prev = NULL;
+	node_to_push->prev = NULL;
 	if (!*dest)
 	{
-		*dest = tmp;
-		tmp->next = NULL;
+		*dest = node_to_push;
+		(*dest)->next = NULL;
+		return;
 	}
-	else
-	{
-		tmp->next = *dest;
-		tmp->next->prev = tmp;
-		*dest = tmp;
-	}
+	node_to_push->next = *dest;
+	(*dest)->prev = node_to_push;
+	*dest = node_to_push;
 }

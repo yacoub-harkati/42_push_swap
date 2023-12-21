@@ -6,7 +6,7 @@
 /*   By: yaharkat <yaharkat@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 15:30:16 by yaharkat          #+#    #+#             */
-/*   Updated: 2023/12/20 22:45:34 by yaharkat         ###   ########.fr       */
+/*   Updated: 2023/12/21 13:18:30 by yaharkat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,53 +25,54 @@ t_stack_node *new_stack(int value)
 	return (new);
 }
 
-t_stack_node *last_stack(t_stack_node *lst)
+t_stack_node *last_stack(t_stack_node *head)
 {
 	t_stack_node *tmp;
 
-	tmp = lst;
+	tmp = head;
 	while (tmp->next)
 		tmp = tmp->next;
 	return (tmp);
 }
 
-void add_back_stack(t_stack_node **lst, t_stack_node *new)
+void add_back_stack(t_stack_node **head, t_stack_node *new)
 {
 	t_stack_node *tmp;
 
-	if (!*lst)
+	if (!*head)
 	{
-		*lst = new;
+		*head = new;
 		return;
 	}
-	tmp = last_stack(*lst);
-	new->next = NULL;
-	new->prev = tmp;
+	tmp = last_stack(*head);
 	tmp->next = new;
+	new->prev = tmp;
+	new->next = NULL;
 }
 
-void add_front_stack(t_stack_node **lst, t_stack_node *new)
+void add_front_stack(t_stack_node **head, t_stack_node *new)
 {
-	if (!*lst)
+	if (!*head)
 	{
-		*lst = new;
+		*head = new;
 		return;
 	}
-	new->next = *lst;
-	(*lst)->prev = new;
-	*lst = new;
+	new->next = *head;
+	(*head)->prev = new;
+	new->prev = NULL;
+	*head = new;
 }
 
-size_t stack_size(t_stack_node *lst)
+size_t stack_size(t_stack_node *head)
 {
 	size_t i;
 
-	if (!lst)
+	if (!head)
 		return (0);
 	i = 0;
-	while (lst)
+	while (head)
 	{
-		lst = lst->next;
+		head = head->next;
 		i++;
 	}
 	return (i);

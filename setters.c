@@ -6,7 +6,7 @@
 /*   By: yaharkat <yaharkat@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 18:19:56 by yaharkat          #+#    #+#             */
-/*   Updated: 2023/12/19 18:34:28 by yaharkat         ###   ########.fr       */
+/*   Updated: 2023/12/21 13:33:40 by yaharkat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,26 @@
 
 void set_target_node(t_stack_node *a, t_stack_node *b)
 {
-	t_stack_node *current_a;
+	t_stack_node *current;
 	t_stack_node *target_node;
-	long best_match_index;
+	int smallest_distance;
 
-	current_a = a;
-	best_match_index = INT_MAX;
-	while(b)
+	while (b)
 	{
-		while (current_a)
+		current = a;
+		smallest_distance = INT_MAX;
+		while (current)
 		{
-			if (current_a->value > b->value && current_a->value < best_match_index)
+			if (current->value > b->value && current->value < smallest_distance)
 			{
-				target_node = current_a;
-				best_match_index = current_a->value;
+				target_node = current;
+				smallest_distance = current->value;
 			}
-			current_a = current_a->next;
+			current = current->next;
 		}
-		if (best_match_index == INT_MAX)
+		if (smallest_distance == INT_MAX)
 			b->target_node = find_smallest(a);
-		else 
+		else
 			b->target_node = target_node;
 		b = b->next;
 	}
@@ -48,7 +48,7 @@ void set_current_position(t_stack_node *lst)
 	i = 0;
 	while (lst)
 	{
-		lst->current_position = i;
+		lst->index = i;
 		if (i <= median)
 			lst->above_median = true;
 		else
@@ -60,20 +60,21 @@ void set_current_position(t_stack_node *lst)
 
 void set_price(t_stack_node *a, t_stack_node *b)
 {
-	int len_a;
-	int len_b;
+	int lenght_a;
+	int lenght_b;
 
-	len_a = stack_size(a);
-	len_b = stack_size(b);
+	lenght_a = stack_size(a);
+	lenght_b = stack_size(b);
 	while (b)
 	{
-		b->price = b->current_position;
+		if (b->above_median)
+			b->price = b->index;
 		if (!(b->above_median))
-			b->price += len_b - b->current_position;
+			b->price = lenght_b - b->index;
 		if (b->target_node->above_median)
-			b->price += b->target_node->current_position;
+			b->price += b->target_node->index;
 		else
-			b->price += len_a - b->target_node->current_position;
+			b->price += lenght_a - b->target_node->index;
 		b = b->next;
 	}
 }

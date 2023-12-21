@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_utils_2.c                                :+:      :+:    :+:   */
+/*   finders.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yaharkat <yaharkat@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 20:40:22 by yaharkat          #+#    #+#             */
-/*   Updated: 2023/12/19 18:41:28 by yaharkat         ###   ########.fr       */
+/*   Updated: 2023/12/21 12:45:25 by yaharkat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,11 +41,14 @@ t_stack_node *find_smallest(t_stack_node *lst)
 }
 t_stack_node *find_cheapest(t_stack_node *b)
 {
-	while (b)
+	t_stack_node *tmp;
+
+	tmp = b;
+	while (tmp)
 	{
-		if (b->cheapest == true)
-			return b;
-		b = b->next;
+		if (tmp->cheapest == true)
+			return tmp;
+		tmp = tmp->next;
 	}
-	return NULL;
+	return b;
 }

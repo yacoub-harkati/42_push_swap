@@ -6,7 +6,7 @@
 /*   By: yaharkat <yaharkat@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 21:10:43 by yaharkat          #+#    #+#             */
-/*   Updated: 2023/12/20 21:20:36 by yaharkat         ###   ########.fr       */
+/*   Updated: 2023/12/21 13:32:13 by yaharkat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,9 @@ void move_nodes(t_stack_node **a, t_stack_node **b, bool checker)
 
 	cheapest_node = find_cheapest(*b);
 	if (cheapest_node->above_median && cheapest_node->target_node->above_median)
-		rotate_both(a, b, cheapest_node, checker);
+		rboth(a, b, cheapest_node, checker);
 	else if (!cheapest_node->above_median && !cheapest_node->target_node->above_median)
-		reverse_rotate_both(a, b, cheapest_node, checker);
+		rrboth(a, b, cheapest_node, checker);
 	finish_rotation(a, cheapest_node->target_node, 'a', checker);
 	finish_rotation(b, cheapest_node, 'b', checker);
 	pa(a, b, checker);

@@ -26,11 +26,13 @@ int main(int ac, char **av)
 	init_stack(&a, av, ac == 2);
 	if (!is_stack_sorted(a))
 	{
-		if (stack_size(a) == 3)
+		if (stack_size(a) == 2)
+			sa(&a, false);
+		else if (stack_size(a) == 3)
 			sort_three(&a, false);
 		else if (stack_size(a) <= 5)
 			sort_five(&a, &b, false);
-		else 
+		else
 			push_swap(&a, &b, false);
 	}
 	free_stack(&a);
