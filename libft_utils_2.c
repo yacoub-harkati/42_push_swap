@@ -6,7 +6,7 @@
 /*   By: yaharkat <yaharkat@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 14:31:34 by yaharkat          #+#    #+#             */
-/*   Updated: 2023/12/21 15:36:12 by yaharkat         ###   ########.fr       */
+/*   Updated: 2023/12/21 16:19:33 by yaharkat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 	}
 	return (ft_strlen(src));
 }
+
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
 	size_t	i;
@@ -93,7 +94,6 @@ char	*ft_strjoin(char *s1, char *s2)
 	dst[0] = '\0';
 	ft_strlcat(dst, s1, (size + 1));
 	ft_strlcat(dst, s2, (size + 1));
-	// if (!*s1)
 	free(s1);
 	return (dst);
 }

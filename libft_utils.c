@@ -6,7 +6,7 @@
 /*   By: yaharkat <yaharkat@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 14:31:34 by yaharkat          #+#    #+#             */
-/*   Updated: 2023/12/21 15:12:56 by yaharkat         ###   ########.fr       */
+/*   Updated: 2023/12/21 16:19:04 by yaharkat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ char	*ft_strdup(const char *s)
 	ft_strlcpy(dest, s, (len + 1));
 	return (dest);
 }
+
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
 	size_t	i;

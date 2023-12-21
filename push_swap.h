@@ -6,7 +6,7 @@
 /*   By: yaharkat <yaharkat@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 13:40:11 by yaharkat          #+#    #+#             */
-/*   Updated: 2023/12/21 15:52:58 by yaharkat         ###   ########.fr       */
+/*   Updated: 2023/12/21 16:18:33 by yaharkat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,5 +99,7 @@ void					finish_rotation(t_stack_node **lst,
 void					sort_five(t_stack_node **a, t_stack_node **b,
 							bool checker);
 void					sort_three(t_stack_node **lst, bool checker);
-char					*ft_strnstr(const char *big, const char *little, size_t len);
+char					*ft_strnstr(const char *big, const char *little,
+							size_t len);
+
 #endif

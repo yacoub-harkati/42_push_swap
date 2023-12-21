@@ -12,9 +12,11 @@
 
 #include "push_swap.h"
 
-void handle_invalid_command(char *line, t_stack_node **a, t_stack_node **b)
+void	handle_invalid_command(char *line, t_stack_node **a, t_stack_node **b)
 {
-	char *src = "sa\nsb\nss\npa\npb\nra\nrb\nrr\nrra\nrrb\nrrr\n";
+	char	*src;
+
+	src = "sa\nsb\nss\npa\npb\nra\nrb\nrr\nrra\nrrb\nrrr\n";
 	if (!ft_strnstr(src, line, ft_strlen(src)))
 	{
 		free_stack(a);
@@ -25,7 +27,8 @@ void handle_invalid_command(char *line, t_stack_node **a, t_stack_node **b)
 	}
 }
 
-void apply_command(char *line, t_stack_node **a, t_stack_node **b, bool checker)
+void	apply_command(char *line, t_stack_node **a, t_stack_node **b,
+		bool checker)
 {
 	if (!ft_strncmp(line, "sa\n", ft_strlen(line)))
 		sa(a, checker);
@@ -51,9 +54,10 @@ void apply_command(char *line, t_stack_node **a, t_stack_node **b, bool checker)
 		rrr(a, b, checker);
 }
 
-void read_and_sort_from_stdin(t_stack_node **a, t_stack_node **b, bool checker)
+void	read_and_sort_from_stdin(t_stack_node **a, t_stack_node **b,
+		bool checker)
 {
-	char *line;
+	char	*line;
 
 	while (get_next_line(0, &line) > 0)
 	{
@@ -63,7 +67,7 @@ void read_and_sort_from_stdin(t_stack_node **a, t_stack_node **b, bool checker)
 	}
 }
 
-void check_stack(t_stack_node **a, t_stack_node **b)
+void	check_stack(t_stack_node **a, t_stack_node **b)
 {
 	if (is_stack_sorted(*a) && !*b)
 		ft_putstr_fd("OK\n", 1);
@@ -71,10 +75,11 @@ void check_stack(t_stack_node **a, t_stack_node **b)
 		ft_putstr_fd("KO\n", 1);
 }
 
-int main(int ac, char **av)
+int	main(int ac, char **av)
 {
-	t_stack_node *a;
-	t_stack_node *b;
+	t_stack_node	*a;
+	t_stack_node	*b;
+
 	a = NULL;
 	if (ac < 2 || (ac == 2 && !av[1][0]))
 		return (EXIT_SUCCESS);
