@@ -6,7 +6,7 @@
 /*   By: yaharkat <yaharkat@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 14:31:34 by yaharkat          #+#    #+#             */
-/*   Updated: 2023/12/21 13:47:30 by yaharkat         ###   ########.fr       */
+/*   Updated: 2023/12/21 15:12:56 by yaharkat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,4 +37,31 @@ char	*ft_strdup(const char *s)
 		return (NULL);
 	ft_strlcpy(dest, s, (len + 1));
 	return (dest);
+}
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
+{
+	size_t	i;
+
+	i = 0;
+	while (i < n && s1[i] && s2[i] && s1[i] == s2[i])
+		i++;
+	if (i == n)
+		return (0);
+	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+}
+
+char	*ft_strchr(const char *s, int c)
+{
+	size_t	i;
+
+	i = 0;
+	while (s[i])
+	{
+		if (s[i] == (char)c)
+			return ((char *)(s + i));
+		i++;
+	}
+	if (s[i] == (char)c)
+		return ((char *)(s + i));
+	return (NULL);
 }

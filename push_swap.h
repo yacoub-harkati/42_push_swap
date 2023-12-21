@@ -6,7 +6,7 @@
 /*   By: yaharkat <yaharkat@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 13:40:11 by yaharkat          #+#    #+#             */
-/*   Updated: 2023/12/21 13:40:12 by yaharkat         ###   ########.fr       */
+/*   Updated: 2023/12/21 15:52:58 by yaharkat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,15 @@
 
 # define EXIT_SUCCESS 0
 # define EXIT_FAILURE 1
+# define BUFFER_SIZE 1
 
 # include <limits.h>
 # include <stdbool.h>
 # include <stdio.h>
+# include <fcntl.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include <string.h>
 
 typedef struct s_stack_node
 {
@@ -34,7 +37,12 @@ typedef struct s_stack_node
 	struct s_stack_node	*prev;
 }						t_stack_node;
 
+int						ft_strncmp(const char *s1, const char *s2, size_t n);
+ssize_t					get_next_line(int fd, char **buff);
+char					*ft_strjoin(char *s1, char *s2);
+size_t					ft_strlcat(char *dst, const char *src, size_t dstsize);
 char					**ft_split(char const *s, char c);
+char					*ft_strchr(const char *s, int c);
 long					ft_atol(const char *nptr);
 int						ft_isdigit(int c);
 size_t					ft_strlcpy(char *dst, const char *src, size_t size);
@@ -91,5 +99,5 @@ void					finish_rotation(t_stack_node **lst,
 void					sort_five(t_stack_node **a, t_stack_node **b,
 							bool checker);
 void					sort_three(t_stack_node **lst, bool checker);
-
+char					*ft_strnstr(const char *big, const char *little, size_t len);
 #endif
