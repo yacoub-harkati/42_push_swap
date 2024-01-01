@@ -6,7 +6,7 @@
 /*   By: yaharkat <yaharkat@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 13:40:11 by yaharkat          #+#    #+#             */
-/*   Updated: 2023/12/31 23:11:50 by yaharkat         ###   ########.fr       */
+/*   Updated: 2024/01/01 17:54:52 by yaharkat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ typedef struct s_stack_node
 	struct s_stack_node	*prev;
 }						t_stack_node;
 
-long					ft_atol(const char *nptr);
 bool					check_digit(char *av);
 void					init_stack(t_stack_node **a, char **av, bool av_flag);
 void					free_matrix(char **av);

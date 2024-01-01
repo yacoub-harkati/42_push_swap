@@ -6,7 +6,7 @@
 /*   By: yaharkat <yaharkat@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 21:10:43 by yaharkat          #+#    #+#             */
-/*   Updated: 2023/12/31 23:18:21 by yaharkat         ###   ########.fr       */
+/*   Updated: 2024/01/01 17:45:01 by yaharkat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	push_swap(t_stack_node **a, t_stack_node **b, bool checker)
 	t_stack_node	*smallest_node;
 
 	len_a = stack_size(*a);
-	while (len_a-- > 3)
+	while (len_a-- > 3 && !is_stack_sorted(*a))
 		pb(a, b, checker);
 	sort_three(a, checker);
 	while (*b)

@@ -6,7 +6,7 @@
 /*   By: yaharkat <yaharkat@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 12:09:16 by yaharkat          #+#    #+#             */
-/*   Updated: 2023/12/21 16:02:11 by yaharkat         ###   ########.fr       */
+/*   Updated: 2024/01/01 18:04:32 by yaharkat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	handle_invalid_command(char *line, t_stack_node **a, t_stack_node **b)
 	char	*src;
 
 	src = "sa\nsb\nss\npa\npb\nra\nrb\nrr\nrra\nrrb\nrrr\n";
-	if (!ft_strnstr(src, line, ft_strlen(src)))
+	if (ft_strlen(src) < 3 || !ft_strnstr(src, line, ft_strlen(src)))
 	{
 		free_stack(a);
 		free_stack(b);
