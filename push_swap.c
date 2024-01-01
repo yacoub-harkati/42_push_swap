@@ -6,7 +6,7 @@
 /*   By: yaharkat <yaharkat@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 12:09:16 by yaharkat          #+#    #+#             */
-/*   Updated: 2023/12/31 23:35:54 by yaharkat         ###   ########.fr       */
+/*   Updated: 2024/01/01 15:43:42 by yaharkat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,21 +15,25 @@
 char **join_args(int ac, char **av)
 {
 	int i;
-
+	char **args;
+	char *tmp;
+	
 	i = 0;
+	tmp = ft_strdup("");
 	while (++i < ac)
 	{
-		if (!av[i])
+		if (!*av[i])
 		{
 			ft_putstr_fd("Error\n", 2);
-			if (i > 2)
-				free(av[1]);
+			free(tmp);
 			exit(EXIT_FAILURE);
 		}
-		av[1] = ft_strjoin(av[1], " ");
-		av[1] = ft_strjoin(av[1], av[i]);
+		tmp = ft_strjoin(tmp, " ");
+		tmp = ft_strjoin(tmp, av[i]);
 	}
-	return (ft_split(av[1], ' '));
+	args = ft_split(tmp, ' ');
+	free(tmp);
+	return (args);
 }
 
 int main(int ac, char **av)
@@ -42,7 +46,7 @@ int main(int ac, char **av)
 	if (ac < 2)
 		return (EXIT_FAILURE);
 	av = join_args(ac, av);
-	init_stack(&a, av, ac == 2);
+	init_stack(&a, av, true);
 	if (!is_stack_sorted(a))
 	{
 		if (stack_size(a) == 2)

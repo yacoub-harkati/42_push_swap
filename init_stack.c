@@ -6,7 +6,7 @@
 /*   By: yaharkat <yaharkat@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 13:48:34 by yaharkat          #+#    #+#             */
-/*   Updated: 2023/12/21 13:46:37 by yaharkat         ###   ########.fr       */
+/*   Updated: 2024/01/01 15:33:51 by yaharkat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	init_stack(t_stack_node **a, char **av, bool av_flag)
 	int		i;
 	long	number;
 
-	i = !av_flag;
+	i = 0;
 	while (av[i])
 	{
 		number = ft_atol(av[i]);
