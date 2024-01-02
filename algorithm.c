@@ -6,7 +6,7 @@
 /*   By: yaharkat <yaharkat@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 21:10:43 by yaharkat          #+#    #+#             */
-/*   Updated: 2024/01/01 17:45:01 by yaharkat         ###   ########.fr       */
+/*   Updated: 2024/01/02 12:42:47 by yaharkat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,25 +38,20 @@ void	move_nodes(t_stack_node **a, t_stack_node **b, bool checker)
 
 void	push_swap(t_stack_node **a, t_stack_node **b, bool checker)
 {
-	int				len_a;
-	t_stack_node	*smallest_node;
+	int len_a;
 
 	len_a = stack_size(*a);
-	while (len_a-- > 3 && !is_stack_sorted(*a))
-		pb(a, b, checker);
-	sort_three(a, checker);
-	while (*b)
-	{
-		init_nodes(a, b);
-		move_nodes(a, b, checker);
-	}
-	set_current_position(*a);
-	smallest_node = find_smallest(*a);
-	while (*a != smallest_node)
-	{
-		if (smallest_node->above_median)
-			ra(a, checker);
-		else
-			rra(a, checker);
-	}
+	if (len_a <= 250)
+		sort_two_fifty(a, b, checker);
+	else
+		sort_big(a, b, checker);
+}
+
+void sort_big(t_stack_node **a, t_stack_node **b, bool checker)
+{
+	(void)a;
+	(void)b;
+	(void)checker;
+	
+	printf("To do: sort bigger numbers more than 250");
 }

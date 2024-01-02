@@ -6,7 +6,7 @@
 /*   By: yaharkat <yaharkat@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 13:40:11 by yaharkat          #+#    #+#             */
-/*   Updated: 2024/01/01 17:54:52 by yaharkat         ###   ########.fr       */
+/*   Updated: 2024/01/02 12:44:08 by yaharkat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,8 @@ void					finish_rotation(t_stack_node **lst,
 void					sort_five(t_stack_node **a, t_stack_node **b,
 							bool checker);
 void					sort_three(t_stack_node **lst, bool checker);
-
+void					sort_two_fifty(t_stack_node **a, t_stack_node **b, bool checker);
+void					sort_big(t_stack_node **a, t_stack_node **b, bool checker);
+void					move_nodes(t_stack_node **a, t_stack_node **b, bool checker);
 
 #endif

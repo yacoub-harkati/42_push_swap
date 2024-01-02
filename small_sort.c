@@ -6,7 +6,7 @@
 /*   By: yaharkat <yaharkat@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 21:11:02 by yaharkat          #+#    #+#             */
-/*   Updated: 2023/12/21 13:40:38 by yaharkat         ###   ########.fr       */
+/*   Updated: 2024/01/02 12:39:26 by yaharkat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,4 +45,29 @@ void	sort_five(t_stack_node **a, t_stack_node **b, bool checker)
 	sort_three(a, checker);
 	while (*b != NULL)
 		pa(a, b, checker);
+}
+
+void sort_two_fifty(t_stack_node **a, t_stack_node **b, bool checker)
+{
+	int				len_a;
+	t_stack_node	*smallest_node;
+
+	len_a = stack_size(*a);
+	while (len_a-- > 3 && !is_stack_sorted(*a))
+		pb(a, b, checker);
+	sort_three(a, checker);
+	while (*b)
+	{
+		init_nodes(a, b);
+		move_nodes(a, b, checker);
+	}
+	set_current_position(*a);
+	smallest_node = find_smallest(*a);
+	while (*a != smallest_node)
+	{
+		if (smallest_node->above_median)
+			ra(a, checker);
+		else
+			rra(a, checker);
+	}
 }
