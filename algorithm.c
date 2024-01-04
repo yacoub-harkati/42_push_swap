@@ -6,7 +6,7 @@
 /*   By: yaharkat <yaharkat@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 21:10:43 by yaharkat          #+#    #+#             */
-/*   Updated: 2024/01/02 12:42:47 by yaharkat         ###   ########.fr       */
+/*   Updated: 2024/01/04 18:47:32 by yaharkat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,17 +41,8 @@ void	push_swap(t_stack_node **a, t_stack_node **b, bool checker)
 	int len_a;
 
 	len_a = stack_size(*a);
-	if (len_a <= 250)
+	if (false && len_a <= 250)
 		sort_two_fifty(a, b, checker);
 	else
 		sort_big(a, b, checker);
-}
-
-void sort_big(t_stack_node **a, t_stack_node **b, bool checker)
-{
-	(void)a;
-	(void)b;
-	(void)checker;
-	
-	printf("To do: sort bigger numbers more than 250");
 }

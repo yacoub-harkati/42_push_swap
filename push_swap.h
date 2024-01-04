@@ -6,7 +6,7 @@
 /*   By: yaharkat <yaharkat@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 13:40:11 by yaharkat          #+#    #+#             */
-/*   Updated: 2024/01/02 12:44:08 by yaharkat         ###   ########.fr       */
+/*   Updated: 2024/01/04 20:41:06 by yaharkat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,15 @@ typedef struct s_stack_node
 	struct s_stack_node	*prev;
 }						t_stack_node;
 
+typedef struct s_bigsort_data 
+{
+	int	*sort_array;
+	int	**chunks;
+	int *chucks_count;
+	int stack_size;
+}						t_bigsort_data;
+
+void					init_bs_data(t_bigsort_data *bs_data, t_stack_node *a);
 bool					check_digit(char *av);
 void					init_stack(t_stack_node **a, char **av, bool av_flag);
 void					free_matrix(char **av);
@@ -89,5 +98,5 @@ void					sort_three(t_stack_node **lst, bool checker);
 void					sort_two_fifty(t_stack_node **a, t_stack_node **b, bool checker);
 void					sort_big(t_stack_node **a, t_stack_node **b, bool checker);
 void					move_nodes(t_stack_node **a, t_stack_node **b, bool checker);
-
+int						*get_sorted_num_buffer(t_stack_node *a);
 #endif
