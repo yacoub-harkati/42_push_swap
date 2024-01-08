@@ -6,7 +6,7 @@
 /*   By: yaharkat <yaharkat@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 15:13:15 by yaharkat          #+#    #+#             */
-/*   Updated: 2024/01/04 22:49:21 by yaharkat         ###   ########.fr       */
+/*   Updated: 2024/01/08 23:44:36 by yaharkat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,4 +122,53 @@ void init_bs_data(t_bigsort_data *bs_data, t_stack_node *a)
 	bs_data->sort_array = get_sorted_num_buffer(a);
 	bs_data->chunks = get_chunks(bs_data);
 	print_chunks(bs_data);
+}
+
+bool is_inside_chunk(int *chunk, int value, int size)
+{
+	int i;
+
+	i = 0;
+	while (i < size)
+	{
+		if (chunk[i] == value)
+			return true;
+		i++;
+	}
+	return false;
+}
+
+t_stack_node *find_inside_chunk(t_stack_node *a, t_bigsort_data *bs_data, int *chunk)
+{
+	int i;
+	i = 0;
+	while (a)
+	{
+		if (is_inside_chunk(chunk, a->value, bs_data->chucks_count[i]))
+		{
+			i++;
+			return a;
+		}
+		a = a->next;
+	}
+	return NULL;
+}
+
+t_stack_node *find_rv_inside_chunk(t_stack_node *a, t_bigsort_data *bs_data, int *chunk)
+{
+	int i;
+	t_stack_node *last_node;
+
+	last_node = last_stack(a);
+	i = 0;
+	while (last_node)
+	{
+		if (is_inside_chunk(chunk, last_node->value, bs_data->chucks_count[i]))
+		{
+			i++;
+			return last_node;
+		}
+		last_node = last_node->prev;
+	}
+	return NULL;
 }

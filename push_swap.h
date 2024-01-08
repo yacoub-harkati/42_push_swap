@@ -6,7 +6,7 @@
 /*   By: yaharkat <yaharkat@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 13:40:11 by yaharkat          #+#    #+#             */
-/*   Updated: 2024/01/04 20:41:06 by yaharkat         ###   ########.fr       */
+/*   Updated: 2024/01/08 23:26:44 by yaharkat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,18 @@ typedef struct s_bigsort_data
 	int stack_size;
 }						t_bigsort_data;
 
-void					init_bs_data(t_bigsort_data *bs_data, t_stack_node *a);
+void	print_chunks(t_bigsort_data *bs_data);
+void	init_chunks(t_bigsort_data *bs_data);
+void	add_to_chunk(int **chunks, int *chunk_count, int chunk_index, int value);
+int		**get_chunks(t_bigsort_data *bs_data);
+int		*sort_array(int *unsorted_arr, int size);
+int		*get_sorted_num_buffer(t_stack_node *a);
+void	init_bs_data(t_bigsort_data *bs_data, t_stack_node *a);
+bool	is_inside_chunk(int *chunk, int value, int size);
+t_stack_node *find_inside_chunk(t_stack_node *a, t_bigsort_data *bs_data, int *chunk);
+t_stack_node *find_rv_inside_chunk(t_stack_node *a, t_bigsort_data *bs_data, int *chunk);
+
+
 bool					check_digit(char *av);
 void					init_stack(t_stack_node **a, char **av, bool av_flag);
 void					free_matrix(char **av);
@@ -98,5 +109,4 @@ void					sort_three(t_stack_node **lst, bool checker);
 void					sort_two_fifty(t_stack_node **a, t_stack_node **b, bool checker);
 void					sort_big(t_stack_node **a, t_stack_node **b, bool checker);
 void					move_nodes(t_stack_node **a, t_stack_node **b, bool checker);
-int						*get_sorted_num_buffer(t_stack_node *a);
 #endif
