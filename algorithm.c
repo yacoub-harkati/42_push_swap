@@ -6,7 +6,7 @@
 /*   By: yaharkat <yaharkat@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 21:10:43 by yaharkat          #+#    #+#             */
-/*   Updated: 2024/01/04 18:47:32 by yaharkat         ###   ########.fr       */
+/*   Updated: 2024/01/11 15:18:46 by yaharkat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,8 @@ void	push_swap(t_stack_node **a, t_stack_node **b, bool checker)
 	int len_a;
 
 	len_a = stack_size(*a);
-	if (false && len_a <= 250)
-		sort_two_fifty(a, b, checker);
+	if (len_a <= 150)
+		mini_sort(a, b, checker);
 	else
 		sort_big(a, b, checker);
 }

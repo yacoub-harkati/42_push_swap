@@ -6,169 +6,47 @@
 /*   By: yaharkat <yaharkat@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 15:13:15 by yaharkat          #+#    #+#             */
-/*   Updated: 2024/01/08 23:44:36 by yaharkat         ###   ########.fr       */
+/*   Updated: 2024/01/11 15:20:43 by yaharkat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void print_chunks(t_bigsort_data *bs_data)
+t_stack_node *find_min_node(t_stack_node *node)
 {
-	for (int i = 0; i < 11; i++)
+	t_stack_node *target_node;
+	int min_value;
+
+
+	min_value = INT_MAX;
+	target_node = node;
+	while(node)
 	{
-		printf("Chunk %d: ", i);
-		for (int j = 0; j < bs_data->chucks_count[i]; j++)
+		if (node->value < min_value)
 		{
-			printf("%d ", bs_data->chunks[i][j]);
+			min_value = node->value;
+			target_node = node;
 		}
-		printf("\n");
+		node = node->next;
 	}
+	return (target_node);
 }
 
-void init_chunks(t_bigsort_data *bs_data)
+t_stack_node *find_max_node(t_stack_node *node)
 {
-	int chunk_index;
+	t_stack_node *target_node;
+	int min_value;
 
-	chunk_index = 0;
-	bs_data->chunks = malloc(sizeof(int *) * 11);
-	bs_data->chucks_count = malloc(sizeof(int) * 11);
-	while (chunk_index < 11)
+	min_value = INT_MIN;
+	target_node = node;
+	while(node)
 	{
-		bs_data->chunks[chunk_index] = malloc(sizeof(int) * 1000);
-		bs_data->chucks_count[chunk_index] = 0;
-		chunk_index++;
-	}
-}
-void add_to_chunk(int **chunks, int *chunk_count, int chunk_index, int value)
-{
-	if (chunk_index >= 11)
-		chunk_index = 10;
-	else if (chunk_index < 0)
-		chunk_index = 0;
-	chunks[chunk_index][chunk_count[chunk_index]] = value;
-	chunk_count[chunk_index]++;
-}
-
-int **get_chunks(t_bigsort_data *bs_data)
-{
-	int remainder;
-	int elements_per_chunk;
-	int chunk_index;
-	int total_count;
-
-	init_chunks(bs_data);
-	elements_per_chunk = bs_data->stack_size / 11;
-	remainder = bs_data->stack_size % 11;
-	total_count = 0;
-
-	while (total_count < bs_data->stack_size)
-	{
-		if (total_count < (elements_per_chunk + 1) * remainder)
-			chunk_index = total_count / (elements_per_chunk + 1);
-		else
-			chunk_index = remainder + (total_count - (elements_per_chunk + 1) * remainder) / elements_per_chunk;
-		add_to_chunk(bs_data->chunks, bs_data->chucks_count, chunk_index, bs_data->sort_array[total_count]);
-		total_count++;
-	}
-
-	return (bs_data->chunks);
-}
-
-int *sort_array(int *unsorted_arr, int size)
-{
-	int tmp;
-	int i;
-	int j;
-
-	i = 0;
-	while (i < size)
-	{
-		j = 0;
-		while (j < size - 1)
+		if (node->value > min_value)
 		{
-			if (unsorted_arr[j] > unsorted_arr[j + 1])
-			{
-				tmp = unsorted_arr[j];
-				unsorted_arr[j] = unsorted_arr[j + 1];
-				unsorted_arr[j + 1] = tmp;
-			}
-			j++;
+			min_value = node->value;
+			target_node = node;
 		}
-		i++;
+		node = node->next;
 	}
-	return unsorted_arr;
-}
-
-int *get_sorted_num_buffer(t_stack_node *a)
-{
-	int *returned_arr;
-	int size;
-	int i;
-
-	i = 0;
-	size = stack_size(a);
-	returned_arr = malloc(sizeof(int) * size);
-	while (a)
-	{
-		returned_arr[i++] = a->value;
-		a = a->next;
-	}
-	return (sort_array(returned_arr, size));
-}
-
-void init_bs_data(t_bigsort_data *bs_data, t_stack_node *a)
-{
-	bs_data->stack_size = stack_size(a);
-	bs_data->sort_array = get_sorted_num_buffer(a);
-	bs_data->chunks = get_chunks(bs_data);
-	print_chunks(bs_data);
-}
-
-bool is_inside_chunk(int *chunk, int value, int size)
-{
-	int i;
-
-	i = 0;
-	while (i < size)
-	{
-		if (chunk[i] == value)
-			return true;
-		i++;
-	}
-	return false;
-}
-
-t_stack_node *find_inside_chunk(t_stack_node *a, t_bigsort_data *bs_data, int *chunk)
-{
-	int i;
-	i = 0;
-	while (a)
-	{
-		if (is_inside_chunk(chunk, a->value, bs_data->chucks_count[i]))
-		{
-			i++;
-			return a;
-		}
-		a = a->next;
-	}
-	return NULL;
-}
-
-t_stack_node *find_rv_inside_chunk(t_stack_node *a, t_bigsort_data *bs_data, int *chunk)
-{
-	int i;
-	t_stack_node *last_node;
-
-	last_node = last_stack(a);
-	i = 0;
-	while (last_node)
-	{
-		if (is_inside_chunk(chunk, last_node->value, bs_data->chucks_count[i]))
-		{
-			i++;
-			return last_node;
-		}
-		last_node = last_node->prev;
-	}
-	return NULL;
+	return (target_node);
 }

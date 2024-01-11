@@ -6,7 +6,7 @@
 /*   By: yaharkat <yaharkat@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 21:11:02 by yaharkat          #+#    #+#             */
-/*   Updated: 2024/01/02 12:39:26 by yaharkat         ###   ########.fr       */
+/*   Updated: 2024/01/11 15:18:32 by yaharkat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	sort_five(t_stack_node **a, t_stack_node **b, bool checker)
 		pa(a, b, checker);
 }
 
-void sort_two_fifty(t_stack_node **a, t_stack_node **b, bool checker)
+void mini_sort(t_stack_node **a, t_stack_node **b, bool checker)
 {
 	int				len_a;
 	t_stack_node	*smallest_node;

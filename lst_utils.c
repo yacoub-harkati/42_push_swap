@@ -6,7 +6,7 @@
 /*   By: yaharkat <yaharkat@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 15:30:16 by yaharkat          #+#    #+#             */
-/*   Updated: 2023/12/21 13:18:30 by yaharkat         ###   ########.fr       */
+/*   Updated: 2024/01/11 15:09:29 by yaharkat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,9 +63,9 @@ void	add_front_stack(t_stack_node **head, t_stack_node *new)
 	*head = new;
 }
 
-size_t	stack_size(t_stack_node *head)
+int	stack_size(t_stack_node *head)
 {
-	size_t	i;
+	int	i;
 
 	if (!head)
 		return (0);
