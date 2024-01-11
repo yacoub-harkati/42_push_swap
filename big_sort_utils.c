@@ -12,15 +12,14 @@
 
 #include "push_swap.h"
 
-t_stack_node *find_min_node(t_stack_node *node)
+t_stack_node	*find_min_node(t_stack_node *node)
 {
-	t_stack_node *target_node;
-	int min_value;
-
+	t_stack_node	*target_node;
+	int				min_value;
 
 	min_value = INT_MAX;
 	target_node = node;
-	while(node)
+	while (node)
 	{
 		if (node->value < min_value)
 		{
@@ -32,14 +31,14 @@ t_stack_node *find_min_node(t_stack_node *node)
 	return (target_node);
 }
 
-t_stack_node *find_max_node(t_stack_node *node)
+t_stack_node	*find_max_node(t_stack_node *node)
 {
-	t_stack_node *target_node;
-	int min_value;
+	t_stack_node	*target_node;
+	int				min_value;
 
 	min_value = INT_MIN;
 	target_node = node;
-	while(node)
+	while (node)
 	{
 		if (node->value > min_value)
 		{

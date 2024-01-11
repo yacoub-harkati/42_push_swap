@@ -6,7 +6,7 @@
 /*   By: yaharkat <yaharkat@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 13:40:11 by yaharkat          #+#    #+#             */
-/*   Updated: 2024/01/11 15:25:07 by yaharkat         ###   ########.fr       */
+/*   Updated: 2024/01/11 15:41:07 by yaharkat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,26 +38,18 @@ typedef struct s_stack_node
 	struct s_stack_node	*prev;
 }						t_stack_node;
 
-typedef struct s_bigsort_data 
-{
-	int	*sort_array;
-	int	**chunks;
-	int *chucks_count;
-	int stack_size;
-}						t_bigsort_data;
-
 t_stack_node			*find_min_node(t_stack_node *node);
 t_stack_node			*find_max_node(t_stack_node *node);
 t_stack_node			**sort_b(t_stack_node **a, t_stack_node **b, bool checker);
-t_stack_node 			**sort_a(t_stack_node **stack_a, t_stack_node **stack_b, bool checker);
+t_stack_node 			**sort_a(t_stack_node **stack_a, t_stack_node **stack_b);
 int						calc_rotate_type(t_stack_node *a, t_stack_node *b);
 int						get_pos_a(t_stack_node *stack_a, int nbr_push);
 int						get_pos_b(t_stack_node *b, int value_push);
 int						find_index(t_stack_node *a, int value);
-int						apply_rrarrb(t_stack_node **a, t_stack_node **b, int c, char s, bool checker);
-int						apply_rarb(t_stack_node **a, t_stack_node **b, int c, char s, bool checker);
-int						apply_rrarb(t_stack_node **a, t_stack_node **b, int c, char s, bool checker);
-int						apply_rarrb(t_stack_node **a, t_stack_node **b, int c, char s, bool checker);
+int						apply_rrarrb(t_stack_node **a, t_stack_node **b, int c, char s);
+int						apply_rarb(t_stack_node **a, t_stack_node **b, int c, char s);
+int						apply_rrarb(t_stack_node **a, t_stack_node **b, int c, char s);
+int						apply_rarrb(t_stack_node **a, t_stack_node **b, int c, char s);
 int						calc_rarb(t_stack_node *a, t_stack_node *b, int c);
 int						calc_rrarrb(t_stack_node *a, t_stack_node *b, int c);
 int						calc_rrarb(t_stack_node *a, t_stack_node *b, int c);
@@ -70,7 +62,6 @@ int						calc_rarrb_a(t_stack_node *a, t_stack_node *b, int c);
 int						calc_rrarb_a(t_stack_node *a, t_stack_node *b, int c);
 int						calc_rotate_type(t_stack_node *a, t_stack_node *b);
 int						ft_rotate_type_ba(t_stack_node *a, t_stack_node *b);
-
 bool					check_digit(char *av);
 void					init_stack(t_stack_node **a, char **av, bool av_flag);
 void					free_matrix(char **av);

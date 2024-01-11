@@ -12,12 +12,12 @@
 
 #include "push_swap.h"
 
-char **join_args(int ac, char **av)
+char	**join_args(int ac, char **av)
 {
-	int i;
-	char **args;
-	char *tmp;
-	
+	int		i;
+	char	**args;
+	char	*tmp;
+
 	i = 0;
 	tmp = ft_strdup("");
 	while (++i < ac)
@@ -36,10 +36,10 @@ char **join_args(int ac, char **av)
 	return (args);
 }
 
-int main(int ac, char **av)
+int	main(int ac, char **av)
 {
-	t_stack_node *a;
-	t_stack_node *b;
+	t_stack_node	*a;
+	t_stack_node	*b;
 
 	a = NULL;
 	b = NULL;

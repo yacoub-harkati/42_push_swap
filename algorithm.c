@@ -38,7 +38,7 @@ void	move_nodes(t_stack_node **a, t_stack_node **b, bool checker)
 
 void	push_swap(t_stack_node **a, t_stack_node **b, bool checker)
 {
-	int len_a;
+	int	len_a;
 
 	len_a = stack_size(*a);
 	if (len_a <= 150)
