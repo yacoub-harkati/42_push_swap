@@ -6,7 +6,7 @@
 /*   By: yaharkat <yaharkat@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 12:48:18 by yaharkat          #+#    #+#             */
-/*   Updated: 2024/01/11 15:55:02 by yaharkat         ###   ########.fr       */
+/*   Updated: 2024/01/11 16:35:15 by yaharkat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,21 +26,21 @@ int	find_index(t_stack_node *a, int value)
 	return (i);
 }
 
-int	get_pos_a(t_stack_node *a, int nbr_push)
+int	get_pos_a(t_stack_node *a, int value_push)
 {
 	int				i;
 	t_stack_node	*tmp;
 
 	i = 1;
-	if (nbr_push < a->value && nbr_push > last_stack(a)->value)
+	if (value_push < a->value && value_push > last_stack(a)->value)
 		i = 0;
-	else if (nbr_push > find_max_node(a)->value
-		|| nbr_push < find_min_node(a)->value)
+	else if (value_push > find_max_node(a)->value
+		|| value_push < find_min_node(a)->value)
 		i = find_index(a, find_min_node(a)->value);
 	else
 	{
 		tmp = a->next;
-		while (a->value > nbr_push || tmp->value < nbr_push)
+		while (a->value > value_push || tmp->value < value_push)
 		{
 			a = a->next;
 			tmp = tmp->next;
