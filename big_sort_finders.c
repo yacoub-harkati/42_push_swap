@@ -6,7 +6,7 @@
 /*   By: yaharkat <yaharkat@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 12:48:18 by yaharkat          #+#    #+#             */
-/*   Updated: 2024/01/11 15:37:11 by yaharkat         ###   ########.fr       */
+/*   Updated: 2024/01/11 15:55:02 by yaharkat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,24 +26,24 @@ int	find_index(t_stack_node *a, int value)
 	return (i);
 }
 
-int	get_pos_a(t_stack_node *stack_a, int nbr_push)
+int	get_pos_a(t_stack_node *a, int nbr_push)
 {
 	int				i;
 	t_stack_node	*tmp;
 
 	i = 1;
-	if (nbr_push < stack_a->value && nbr_push > last_stack(stack_a)->value)
+	if (nbr_push < a->value && nbr_push > last_stack(a)->value)
 		i = 0;
-	else if (nbr_push > find_max_node(stack_a)->value
-		|| nbr_push < find_min_node(stack_a)->value)
-		i = find_index(stack_a, find_min_node(stack_a)->value);
+	else if (nbr_push > find_max_node(a)->value
+		|| nbr_push < find_min_node(a)->value)
+		i = find_index(a, find_min_node(a)->value);
 	else
 	{
-		tmp = stack_a->next;
-		while (stack_a->value > nbr_push || tmp->value < nbr_push)
+		tmp = a->next;
+		while (a->value > nbr_push || tmp->value < nbr_push)
 		{
-			stack_a = stack_a->next;
-			tmp = stack_a->next;
+			a = a->next;
+			tmp = tmp->next;
 			i++;
 		}
 	}
@@ -67,7 +67,7 @@ int	get_pos_b(t_stack_node *b, int value_push)
 		while (b->value < value_push || tmp->value > value_push)
 		{
 			b = b->next;
-			tmp = b->next;
+			tmp = tmp->next;
 			i++;
 		}
 	}
