@@ -6,7 +6,7 @@
 /*   By: yaharkat <yaharkat@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 14:28:16 by yaharkat          #+#    #+#             */
-/*   Updated: 2023/12/31 23:30:50 by yaharkat         ###   ########.fr       */
+/*   Updated: 2024/01/12 21:29:42 by yaharkat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,15 @@
 
 bool	check_error(t_stack_node **a, char *av, long number)
 {
+	int	i;
+
+	i = 0;
+	while (av[i])
+		i++;
+	if (av[0] != '-' && i > 10)
+		return (false);
+	if (av[0] == '-' && i > 11)
+		return (false);
 	if (!check_digit(av) || !check_int(number) || !check_duplicate(*a, number))
 		return (false);
 	return (true);
