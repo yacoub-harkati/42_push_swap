@@ -17,14 +17,14 @@
 # define EXIT_FAILURE 1
 # define BUFFER_SIZE 1
 
+# include "libft/libft.h"
+# include <fcntl.h>
 # include <limits.h>
 # include <stdbool.h>
 # include <stdio.h>
-# include <fcntl.h>
 # include <stdlib.h>
-# include <unistd.h>
 # include <string.h>
-# include "libft/libft.h"
+# include <unistd.h>
 
 typedef struct s_stack_node
 {
@@ -41,16 +41,22 @@ typedef struct s_stack_node
 char					**join_args(int ac, char **av);
 t_stack_node			*find_min_node(t_stack_node *node);
 t_stack_node			*find_max_node(t_stack_node *node);
-t_stack_node			**sort_b(t_stack_node **a, t_stack_node **b, bool checker);
-t_stack_node 			**sort_a(t_stack_node **stack_a, t_stack_node **stack_b);
+t_stack_node			**sort_b(t_stack_node **a, t_stack_node **b,
+							bool checker);
+t_stack_node			**sort_a(t_stack_node **stack_a,
+							t_stack_node **stack_b);
 int						calc_rotate_type(t_stack_node *a, t_stack_node *b);
 int						get_pos_a(t_stack_node *stack_a, int nbr_push);
 int						get_pos_b(t_stack_node *b, int value_push);
 int						find_index(t_stack_node *a, int value);
-int						apply_rrarrb(t_stack_node **a, t_stack_node **b, int c, char s);
-int						apply_rarb(t_stack_node **a, t_stack_node **b, int c, char s);
-int						apply_rrarb(t_stack_node **a, t_stack_node **b, int c, char s);
-int						apply_rarrb(t_stack_node **a, t_stack_node **b, int c, char s);
+int						apply_rrarrb(t_stack_node **a, t_stack_node **b, int c,
+							char s);
+int						apply_rarb(t_stack_node **a, t_stack_node **b, int c,
+							char s);
+int						apply_rrarb(t_stack_node **a, t_stack_node **b, int c,
+							char s);
+int						apply_rarrb(t_stack_node **a, t_stack_node **b, int c,
+							char s);
 int						calc_rarb(t_stack_node *a, t_stack_node *b, int c);
 int						calc_rrarrb(t_stack_node *a, t_stack_node *b, int c);
 int						calc_rrarb(t_stack_node *a, t_stack_node *b, int c);
@@ -111,7 +117,10 @@ void					finish_rotation(t_stack_node **lst,
 void					sort_five(t_stack_node **a, t_stack_node **b,
 							bool checker);
 void					sort_three(t_stack_node **lst, bool checker);
-void					mini_sort(t_stack_node **a, t_stack_node **b, bool checker);
-void					sort_big(t_stack_node **a, t_stack_node **b, bool checker);
-void					move_nodes(t_stack_node **a, t_stack_node **b, bool checker);
+void					mini_sort(t_stack_node **a, t_stack_node **b,
+							bool checker);
+void					sort_big(t_stack_node **a, t_stack_node **b,
+							bool checker);
+void					move_nodes(t_stack_node **a, t_stack_node **b,
+							bool checker);
 #endif
