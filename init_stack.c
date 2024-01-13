@@ -6,7 +6,7 @@
 /*   By: yaharkat <yaharkat@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 13:48:34 by yaharkat          #+#    #+#             */
-/*   Updated: 2024/01/01 17:54:45 by yaharkat         ###   ########.fr       */
+/*   Updated: 2024/01/13 17:23:43 by yaharkat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	init_stack(t_stack_node **a, char **av, bool av_flag)
 {
-	int	i;
-	int	number;
+	int		i;
+	long	number;
 
 	i = 0;
 	while (av[i])

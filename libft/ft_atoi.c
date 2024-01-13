@@ -21,7 +21,7 @@ static int	check_valid_number(size_t number, int sign)
 	return (1);
 }
 
-int	ft_atoi(const char *nptr)
+long	ft_atoi(const char *nptr)
 {
 	size_t				i;
 	unsigned long long	number;

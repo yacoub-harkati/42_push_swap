@@ -1,5 +1,5 @@
 CC = cc
-CFLAGS= -Wall -Wextra -Werror -fsanitize=address -g3
+CFLAGS= -Wall -Wextra -Werror
 NAME = push_swap
 BONUS_NAME = checker
 SRCS = algorithm_utils.c algorithm.c error_check.c error_free.c finders.c \
