@@ -6,7 +6,7 @@
 /*   By: yaharkat <yaharkat@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 13:40:11 by yaharkat          #+#    #+#             */
-/*   Updated: 2024/01/11 15:41:07 by yaharkat         ###   ########.fr       */
+/*   Updated: 2024/01/13 13:16:18 by yaharkat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ typedef struct s_stack_node
 	struct s_stack_node	*prev;
 }						t_stack_node;
 
+char					**join_args(int ac, char **av);
 t_stack_node			*find_min_node(t_stack_node *node);
 t_stack_node			*find_max_node(t_stack_node *node);
 t_stack_node			**sort_b(t_stack_node **a, t_stack_node **b, bool checker);

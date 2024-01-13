@@ -6,7 +6,7 @@
 /*   By: yaharkat <yaharkat@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 12:09:16 by yaharkat          #+#    #+#             */
-/*   Updated: 2024/01/01 18:04:32 by yaharkat         ###   ########.fr       */
+/*   Updated: 2024/01/13 13:15:36 by yaharkat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,12 +81,11 @@ int	main(int ac, char **av)
 	t_stack_node	*b;
 
 	a = NULL;
-	if (ac < 2 || (ac == 2 && !av[1][0]))
-		return (EXIT_SUCCESS);
-	if (ac == 2)
-		av = ft_split(av[1], ' ');
-	init_stack(&a, av, ac == 2);
 	b = NULL;
+	if (ac < 2)
+		return (EXIT_FAILURE);
+	av = join_args(ac, av);
+	init_stack(&a, av, true);
 	read_and_sort_from_stdin(&a, &b, true);
 	check_stack(&a, &b);
 	free_stack(&a);

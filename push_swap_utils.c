@@ -6,11 +6,35 @@
 /*   By: yaharkat <yaharkat@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 20:40:22 by yaharkat          #+#    #+#             */
-/*   Updated: 2023/12/21 13:31:15 by yaharkat         ###   ########.fr       */
+/*   Updated: 2024/01/13 13:16:06 by yaharkat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+char	**join_args(int ac, char **av)
+{
+	int		i;
+	char	**args;
+	char	*tmp;
+
+	i = 0;
+	tmp = ft_strdup("");
+	while (++i < ac)
+	{
+		if (!*av[i])
+		{
+			ft_putstr_fd("Error\n", 2);
+			free(tmp);
+			exit(EXIT_FAILURE);
+		}
+		tmp = ft_strjoin(tmp, " ");
+		tmp = ft_strjoin(tmp, av[i]);
+	}
+	args = ft_split(tmp, ' ');
+	free(tmp);
+	return (args);
+}
 
 void	swap(t_stack_node **lst)
 {
